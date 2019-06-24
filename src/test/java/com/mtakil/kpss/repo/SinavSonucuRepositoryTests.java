@@ -46,4 +46,10 @@ public class SinavSonucuRepositoryTests {
 		assertTrue(! ssList.get(1).getKisi().getAd().equals("Mete"));
 	}
 	
+	@Test
+	public void testFindByTcno_NoPerson() {
+		List<SinavSonucu> ssList = sinavSonucuRepository.findByTcno("123");
+		assertTrue(ssList.size() == 0);
+	}
+	
 }
