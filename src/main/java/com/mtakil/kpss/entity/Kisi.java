@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity
 public class Kisi {
@@ -34,6 +36,7 @@ public class Kisi {
 	private Date dogumTarihi;
 	
 	@OneToMany(mappedBy = "kisi")
+	@JsonManagedReference
 	private List<SinavSonucu> sinavSonucu = new ArrayList<>();
 
 	public Long getId() {
@@ -74,7 +77,7 @@ public class Kisi {
 	}
 	@Override
 	public String toString() {
-		return String.format("Kisi. id:%d, TC no:%s, ad:%s, soyad:%s, dogumTarihi:%s, sinavSonuclari:%s", id, tcno, ad, soyad, dogumTarihi, sinavSonucu);
+		return String.format("Kisi id:%d, TC no:%s, ad:%s, soyad:%s, dogumTarihi:%s sinavSonuclari:%s", id, tcno, ad, soyad, dogumTarihi, sinavSonucu);
 	}
 	
 }

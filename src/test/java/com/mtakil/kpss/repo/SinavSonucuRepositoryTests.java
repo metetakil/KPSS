@@ -28,13 +28,14 @@ public class SinavSonucuRepositoryTests {
 		assertTrue(ss.isPresent());
 		assertTrue(ss.get().getId() == 7);
 		assertTrue(ss.get().getAldigiPuan() == 90);
-		assertTrue(ss.get().getSinavTuru() == SinavTuru.UDS);
+		assertTrue(ss.get().getSinavTuru() == SinavTuru.YDS);
 	}
 	
 	@Test
 	public void testFindByTcno() {
 		List<SinavSonucu> ssList = sinavSonucuRepository.findByTcno("19315957022");
 		assertTrue(ssList.size() == 1);
+		assertTrue(ssList.get(0).getSinavTuru() == SinavTuru.KPSS);
 		assertTrue(ssList.get(0).getSinavYili() == 2019);
 	}
 
