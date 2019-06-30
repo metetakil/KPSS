@@ -21,7 +21,7 @@ public class SinavSonucuController {
 	@Autowired
 	private SinavSonucuRepository sinavSonucuRepository;
 	
-	@GetMapping("/sinavSonucu")
+	@GetMapping("/kpss/sinavSonucu")
 	public List<SinavSonucu> getSinavSonucu(@RequestParam(value="tcno", required = true) String tcno) {
 		logger.info("Received getSinavSonucu request for " + tcno);
 		return sinavSonucuRepository.findByTcno(tcno);
